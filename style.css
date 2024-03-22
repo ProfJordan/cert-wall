@@ -1,0 +1,196 @@
+/* Author: Jordan Halliday
+Website: JordanHalliday.me */
+
+.frame {
+    position: relative;
+    width: 300px; /* Adjust based on your image size */
+    height: 200px; /* Adjust based on your image size */
+    border: 10px solid #8B4513; /* Simulate a wooden frame */
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Add some depth */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 5px; /* Slightly rounded corners for the frame */
+    margin: 1%;
+}
+
+.frame img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    transform-origin: center; /* Ensure rotation happens around the center */
+}
+
+.container {
+  padding-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center frames horizontally */
+    gap: 20px; /* Space between frames */
+}
+
+/* White Frame? */
+
+/* .frame {
+  background-color: #ddc;
+  border: solid 5vmin #eee;
+  border-bottom-color: #fff;
+  border-left-color: #eee;
+  border-radius: 2px;
+  border-right-color: #eee;
+  border-top-color: #ddd;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25) inset, 0 5px 10px 5px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  display: inline-block;
+/*   margin: 10vh 10vw; */
+/*   height: 200px;
+  width: 300px; */
+/*   padding: 8vmin; */
+/*   position: relative;
+  text-align: center;
+}
+.frame:before {
+  border-radius: 2px;
+  bottom: -2vmin;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25) inset;
+  content: "";
+  left: -2vmin;
+  position: absolute;
+  right: -2vmin;
+  top: -2vmin;
+}
+.frame:after {
+  border-radius: 2px;
+  bottom: -2.5vmin;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+  content: "";
+  left: -2.5vmin;
+  position: absolute;
+  right: -2.5vmin;
+  top: -2.5vmin;
+} */
+
+/* Black Frame? */
+
+.frame {
+/*   position: absolute; */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 300px;
+  width: 90%;
+  margin: 2%;
+  background: #fff;
+  padding: 30px;
+  border-style: solid;
+  border-width: 15px;
+  border-top-color: #333333;
+  border-right-color: black;
+  border-bottom-color: #333333;
+  border-left-color: black;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+#wall {
+  background-image: url(assets/images/other/room-wall-5000x1.jpg);
+  background-repeat: repeat-y;
+  width: 100%;
+}
+
+#floor {
+  background-image: url(assets/images/other/room-floor-5000x1.jpg);
+  width: 100%;
+}
+
+/* add string and nail? */
+
+ .frame::before {
+    content: '';
+    position: absolute;
+    top: -50px; /* Adjust as needed to place the string above the frame */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px; /* Thickness of the string */
+     height: 20px; /* Length of the string */
+     background-color: #8B4513; /* String color */
+     border-radius: 2px;
+}
+
+.frame::after {
+    content: '';
+    position: absolute;
+    top: -55px; /* Slightly above the string */
+     left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px; /* Nail size */
+     height: 10px; /* Nail size */
+     background-color: #333; /* Nail color */
+     border-radius: 2px;
+}
+
+/* .frame::before, .frame::after {
+    z-index: 10;
+}
+ */
+
+
+/* Lightbox Modal Stuff */
+
+/* Style for the lightbox background */
+.lightbox-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black background with opacity */
+    backdrop-filter: blur(8px); /* Blur effect for the background */
+}
+
+/* Style for the image inside the lightbox */
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 100vw; /* Viewport width */
+    height: 100vh; /* Viewport height */
+    object-fit: contain; /* Preserve aspect ratio while fitting to container */
+    max-width: 100%; /* Limit width to prevent overflow */
+    max-height: 100%; /* Limit height to prevent overflow */
+}
+
+
+/* Style for the close button */
+.close-lightbox {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Add animation for the lightbox to pop up */
+.lightbox-modal {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+@keyframes zoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
